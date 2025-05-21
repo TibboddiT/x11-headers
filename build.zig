@@ -6,9 +6,12 @@ pub fn build(b: *std.Build) void {
 
     const lib = b.addStaticLibrary(.{
         .name = "x11-headers",
-        .root_source_file = b.addWriteFiles().add("empty.c", ""),
         .target = target,
         .optimize = optimize,
+    });
+
+    lib.addCSourceFile(.{
+        .file = b.addWriteFiles().add("empty.c", ""),
     });
 
     // contains only GLX headers!
