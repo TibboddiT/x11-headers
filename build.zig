@@ -14,7 +14,7 @@ pub fn build(b: *std.Build) void {
         .root_module = libModule,
     });
 
-    lib.addCSourceFile(.{
+    lib.root_module.addCSourceFile(.{
         .file = b.addWriteFiles().add("empty.c", ""),
     });
 
